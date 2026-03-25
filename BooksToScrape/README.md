@@ -36,4 +36,52 @@ Each book contains the following fields:
 ---
 
 ## 🧱 Project Structure
+project/
+├── main.py
+├── scraper.py
+├── save_csv.py
+├── save_json.py
+├── save_failed_csv.py
+└── data/
 
+---
+
+## ⚙️ Installation
+pip install requests beautifulsoup4
+
+---
+
+## ▶️ Usage
+python main.py
+
+---
+
+## 📁 Output Files
+
+- `data/books_success.csv`
+- `data/books_success.json`
+- `data/books_failed.csv`
+
+---
+
+## 💡 Key Design Points
+
+- Separation of concerns:
+  - Listing page scraping
+  - Detail page scraping
+  - Data saving
+- Efficient scraping:
+  - Duplicate removal to avoid redundant requests
+- Robust error handling:
+  - Failed requests are logged and saved separately
+- Extensible structure:
+  - Easy to adapt for other websites
+
+---
+
+## 🔧 Future Improvements
+
+- Parallel processing for faster scraping
+- Database integration (SQLite / PostgreSQL)
+- Support for additional websites
+- CLI arguments for page range control

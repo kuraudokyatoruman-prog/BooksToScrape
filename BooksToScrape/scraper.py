@@ -5,6 +5,7 @@ import time
 import random
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from datetime import datetime
 
 
 HEADERS = {
@@ -33,6 +34,7 @@ def fetch_books(url: str) -> list[dict[str, str]]:
 
     soup = BeautifulSoup(response.text, "html.parser")
     books = []
+    fetched_at = datetime.now().isoformat()
 
     for product in soup.select("article.product_pod"):
         title_tag = product.select_one("h3 a")
@@ -62,6 +64,8 @@ def fetch_books(url: str) -> list[dict[str, str]]:
             "price": price,
             "stock": stock,
             "rating": rating,
+            "fetched_at": fetched_at,
+            "source_url": url
         })
 
     logging.info(f"{len(books)} 件取得: {url}")

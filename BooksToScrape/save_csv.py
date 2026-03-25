@@ -17,6 +17,8 @@ def save_books_to_csv(books: list[dict[str, str]], file_path: str) -> None:
             "upc",
             "description",
             "category",
+            "fetched_at",
+            "source_url"
         ])
 
         for book in books:
@@ -29,4 +31,6 @@ def save_books_to_csv(books: list[dict[str, str]], file_path: str) -> None:
                 book.get("upc", ""),
                 book.get("description", ""),
                 book.get("category", ""),
+                book.get("fetched_at", ""),
+                book.get("source_url", "")
             ])
